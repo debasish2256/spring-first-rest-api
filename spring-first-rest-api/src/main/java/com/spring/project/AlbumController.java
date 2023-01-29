@@ -19,6 +19,7 @@ public class AlbumController {
     public AlbumController(RestTemplateBuilder restTemplateBuilder) {
         this.restTemplate = restTemplateBuilder.build();
     }
+    
 	@GetMapping("/albums")
     public List<Album> getAlbums() {
         ResponseEntity<List<Album>> response = restTemplate.exchange("https://jsonplaceholder.typicode.com/albums",
