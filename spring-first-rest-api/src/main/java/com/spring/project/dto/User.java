@@ -16,7 +16,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-@Table(name="user")
 @Entity
 public class User {
 	@Id
@@ -87,16 +86,5 @@ public class User {
 
 	public void setUpdatedDateTime(LocalDateTime updatedDateTime) {
 		this.updatedDateTime = updatedDateTime;
-	}
-
-	public User(@NotBlank(message = "Username is mandatory") String username,
-			@Pattern(regexp = "\\d{4}-\\d{2}-\\d{2}") @NotNull(message = "Date of Birth is mandatory") LocalDate dateOfBirth,
-			@Email(message = "Email should be valid") @NotBlank(message = "Email is mandatory") String email,
-			@NotBlank(message = "Phone Number is mandatory") @Pattern(regexp = "(^$|[0-9]{12})", message = "Phone Number should be 12 digits") String phoneNumber) {
-		super();
-		this.username = username;
-		this.dateOfBirth = dateOfBirth;
-		this.email = email;
-		this.phoneNumber = phoneNumber;
 	}
 }
