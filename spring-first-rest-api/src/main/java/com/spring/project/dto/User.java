@@ -7,19 +7,21 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
 @Entity
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="user_id")
 	private Integer userId;
 
 	@NotBlank(message = "Username is mandatory")
@@ -35,7 +37,8 @@ public class User {
 	private String email;
 	
 	@NotBlank(message = "Phone Number is mandatory")
-	@Pattern(regexp="(^$|[0-9]{12})", message = "Phone Number should be 12 digits")
+//	@Pattern(regexp="(^$|[0-9]{12})", message = "Phone Number should be 12 digits")
+    @Size(min = 10, max = 10)
 	private String phoneNumber;
 	
 	private LocalDateTime updatedDateTime;

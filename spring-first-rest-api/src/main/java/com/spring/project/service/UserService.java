@@ -18,9 +18,11 @@ public class UserService {
 		return userRepository.save(user);
 	}
 
-	public User getUser(Long userId) {
+	
+	public User getUser(Integer userId) {
 		return userRepository.findById(userId).orElse(null);
 	}
+	 
 
 	public List<User> getAllUsers() {
 		return userRepository.findAll();
@@ -30,7 +32,8 @@ public class UserService {
 		return userRepository.save(user);
 	}
 
-	public void deleteUser(Long userId) {
+	public void deleteUser(Integer userId) {
 		userRepository.deleteById(userId);
 	}
 }
+
