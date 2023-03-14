@@ -1,4 +1,4 @@
-# Chat API Project
+# Chat API Application
 ## Frameworks and language used:
 -  Java 
 -  Spring Boot
